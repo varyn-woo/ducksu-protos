@@ -3,12 +3,32 @@ syntax = "proto3";
 package gamestate;
 
 enum GameStage {
-    UNKNOWN = 0;
+    UNKNOWN_STAGE = 0;
     AWAITING_PLAYERS = 1; // initial waiting room for players to join
     COLLECTING_RESPONSES = 2; // players are submitting inputs
     VOTING = 3; // players are voting on submitted inputs
     END_ROUND = 4; // end of the current round
     GAME_OVER = 5; // game has ended
+}
+
+enum InputType {
+    UNKNOWN_INPUT = 0; // default value
+    TEXT_INPUT = 1; // text input from players
+    VOTE = 2; // vote on inputs
+}
+
+enum ResponseType {
+    UNKNOWN_RESPONSE = 0; // default value
+    GAME_STATE = 1; // responding with new game state
+    ERROR = 2; // error occurred
+}
+
+message UserInput {
+    InputType type = 1; // type of input (e.g., TEXT_INPUT, VOTE)
+    oneof input {
+        TextInput text_input = 2; // for text inputs
+        Vote vote = 3; // for votes
+    }
 }
 
 message TextInput {
@@ -43,4 +63,12 @@ message GameState {
     int32 time_remaining = 7; // in seconds
     string current_prompt = 8; // current question or prompt for the round
     string current_input_type = 9; // current type of thing we are inputting or voting on e.g., "question", "answer"
+}
+
+message ServerResponse {
+    ResponseType type = 1; // type of response (e.g., GAME_STATE, ERROR)
+    oneof response {
+        GameState game_state = 2; // responding with new game state
+        string error_message = 3; // error message if type is ERROR
+    }
 }

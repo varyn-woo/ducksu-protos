@@ -2,6 +2,13 @@ syntax = "proto3";
 
 package gamestate;
 
+message Player {
+    string id = 1;
+    string display_name = 2;
+    int32 score = 3;
+    bool is_active = 4;
+}
+
 // Simple GameState message with a string name
 message GameState {
     string name = 1;

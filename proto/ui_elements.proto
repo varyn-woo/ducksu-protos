@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package proto;
+
+message VotingOption {
+  string id = 1;
+  string option = 2;
+}
+
+message UiElement {
+  string id = 1;
+  oneof element {
+    TextField text_field = 2;
+    string simple_text = 3;
+    StringList string_list = 4;
+    VotingOptions voting_options = 5;
+    string simple_button = 6;
+  }
+}
+
+message TextField {
+  string label = 1;
+  string placeholder = 2;
+  string input_type = 3;
+}
+
+message StringList {
+  repeated string elements = 1;
+}
+
+message VotingOptions {
+  repeated VotingOption options = 1;
+}

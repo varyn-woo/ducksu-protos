@@ -30,4 +30,5 @@ message GameState {
   repeated UiElement ui_elements = 4;
   int32 time_remaining = 5; // in seconds
   string host_player_id = 6;
+  bool started = 7;
 }

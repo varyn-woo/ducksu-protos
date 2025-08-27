@@ -15,6 +15,7 @@ message UiElement {
     StringList string_list = 4;
     VotingOptions voting_options = 5;
     string simple_button = 6;
+    bool countdown_timer = 7; // true if count down, false if count up
   }
 }
 

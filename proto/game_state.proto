@@ -3,6 +3,7 @@ syntax = "proto3";
 package proto;
 
 import "ui_elements.proto";
+import "google/protobuf/timestamp.proto";
 
 message TextInput {
   string text = 1;
@@ -28,7 +29,7 @@ message GameState {
   string name = 2;
   repeated Player players = 3;
   repeated UiElement ui_elements = 4;
-  int32 time_remaining = 5; // in seconds
+  google.protobuf.Timestamp timer_start = 5;
   string host_player_id = 6;
   bool started = 7;
 }

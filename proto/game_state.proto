@@ -4,7 +4,6 @@ package proto;
 
 import "google/protobuf/timestamp.proto";
 import "ui_elements.proto";
-import "google/protobuf/timestamp.proto";
 
 message TextInput {
   string text = 1;

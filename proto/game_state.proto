@@ -20,7 +20,7 @@ message Player {
   string display_name = 2;
   int32 score = 3;
   bool is_active = 4;
-  bool is_waiting = 5; // true if player needs to submit input this round but hasn't yet
+  bool is_waiting = 5; // true if player is done and waiting for other players to submit
 }
 
 // Simple GameState message with a string name

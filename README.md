@@ -3,6 +3,20 @@
 ## Dependencies
 1. Install `buf`: https://buf.build/docs/cli/installation/
 
+## Submodule Setup
+Do not clone this repo on its own (it won't hurt you if you do, it just won't work properly).
+
+
+To set up the submodule when first cloning the parent repo (either [gojo](https://github.com/varyn-woo/gojo) or [glorious-ducksu](https://github.com/varyn-woo/glorious-ducksu)):
+```shell
+git submodule update --init --recursive
+```
+
+To update the submodule after something in it changes:
+```shell
+git submodule update --recursive --remote
+```
+
 ## How does it work?
 Each `.proto` file in this repo defines universal types such as `Player`, `GameState`, etc. that are shared between the front and back end.
 
